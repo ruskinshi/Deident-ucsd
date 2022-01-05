@@ -1,0 +1,6 @@
+pandas>=1.1.5
+natsort>=7.1.1
+pydicom>=2.2.2
+PySide2>=5.15.2
+openpyxl>=3.0.9
+xlsxwriter>=3.0.1

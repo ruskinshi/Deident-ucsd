@@ -1,0 +1,13 @@
+edu.ucla.loni.afni.plugin.AFNIImageReaderSpi
+edu.ucla.loni.analyze.plugin.AnalyzeImageReaderSpi
+edu.ucla.loni.nifti.plugin.NiftiImageReaderSpi
+edu.ucla.loni.jdicom.plugin.DicomImageReaderSpi
+edu.ucla.loni.ecat.plugin.EcatImageReaderSpi
+edu.ucla.loni.freesurfer.plugin.MghImageReaderSpi
+edu.ucla.loni.ge.plugin.GEImageReaderSpi
+edu.ucla.loni.interfile.plugin.HrrtInterfileImageReaderSpi
+edu.ucla.loni.interfile.plugin.InterfileImageReaderSpi
+edu.ucla.loni.medx.plugin.MedxBitmapReaderSpi
+edu.ucla.loni.minc.plugin.MincImageReaderSpi
+edu.ucla.loni.raw.plugin.RawImageReaderSpi
+edu.ucla.loni.pacs.plugin.PacsImageReaderSpi

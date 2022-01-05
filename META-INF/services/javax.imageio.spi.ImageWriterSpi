@@ -1,0 +1,12 @@
+edu.ucla.loni.afni.plugin.AFNIImageWriterSpi
+edu.ucla.loni.analyze.plugin.AnalyzeImageWriterSpi
+edu.ucla.loni.nifti.plugin.NiftiImageWriterSpi
+edu.ucla.loni.jdicom.plugin.DicomImageWriterSpi
+edu.ucla.loni.ecat.plugin.EcatImageWriterSpi
+edu.ucla.loni.freesurfer.plugin.MghImageWriterSpi
+edu.ucla.loni.ge.plugin.GEImageWriterSpi
+edu.ucla.loni.interfile.plugin.HrrtInterfileImageWriterSpi
+edu.ucla.loni.interfile.plugin.InterfileImageWriterSpi
+edu.ucla.loni.minc.plugin.MincImageWriterSpi
+edu.ucla.loni.raw.plugin.RawImageWriterSpi
+edu.ucla.loni.pacs.plugin.PacsImageWriterSpi

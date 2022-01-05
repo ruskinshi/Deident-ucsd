@@ -1,0 +1,3 @@
+edu.ucla.loni.freesurfer.plugin.AsciiCurvBlobWriterSpi
+edu.ucla.loni.freesurfer.plugin.CurvBlobWriterSpi
+edu.ucla.loni.freesurfer.plugin.TriangleSurfaceBlobWriterSpi

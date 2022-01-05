@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- DTD for Debabeler elements:  DTD Version 2.1 -->
+<!-- Creation Date:  Wed Aug 17 14:44:09 NZST 2011 -->
+
+<!-- Main -->
+<!ELEMENT debabel ((identify?, group*, translate*) | (data | dataArray | multipleData))>
+<!ATTLIST debabel version CDATA #REQUIRED>
+
+<!-- Processor that queries a database -->
+<!ELEMENT query (metadata, inputNode*, outputNode*)>
+<!ATTLIST query name CDATA #REQUIRED
+                displayName CDATA ""
+                x CDATA #REQUIRED
+                y CDATA #REQUIRED
+                width CDATA #REQUIRED
+                height CDATA #REQUIRED>
+
+<!-- Processor that inserts data into a database -->
+<!ELEMENT insert (metadata, inputNode*, outputNode*)>
+<!ATTLIST insert name CDATA #REQUIRED
+                 displayName CDATA ""
+                 x CDATA #REQUIRED
+                 y CDATA #REQUIRED
+                 width CDATA #REQUIRED
+                 height CDATA #REQUIRED>
+
+<!-- Processor that updates data in a database -->
+<!ELEMENT update (metadata, inputNode*, outputNode*)>
+<!ATTLIST update name CDATA #REQUIRED
+                 displayName CDATA ""
+                 x CDATA #REQUIRED
+                 y CDATA #REQUIRED
+                 width CDATA #REQUIRED
+                 height CDATA #REQUIRED>
+
+<!-- Tree Array Expander -->
+<!ELEMENT expander ((data | image | blob | contourSet | contour | text | metadata | general | generalValue), inputNode*, outputNode*)>
+<!ATTLIST expander name CDATA #REQUIRED
+                   displayName CDATA ""
+                   x CDATA #REQUIRED
+                   y CDATA #REQUIRED
+                   width CDATA #REQUIRED
+                   height CDATA #REQUIRED>
+
+<!-- Tree Array Compactor -->
+<!ELEMENT compactor ((data | image | blob | contourSet | contour | text | metadata | general | generalValue), inputNode*, outputNode*)>
+<!ATTLIST compactor name CDATA #REQUIRED
+                    displayName CDATA ""
+                    x CDATA #REQUIRED
+                    y CDATA #REQUIRED
+                    width CDATA #REQUIRED
+                    height CDATA #REQUIRED>
+
+<!-- Source Identification -->
+<!ELEMENT identify (source, expander*, compactor*, query*, insert*, update*, processor*, loop*, macro*, output*, connection*, supplier, receiver)>
+<!ATTLIST identify name CDATA #REQUIRED
+                   description CDATA ""
+                   displayName CDATA ""
+                   x CDATA #REQUIRED
+                   y CDATA #REQUIRED
+                   width CDATA #REQUIRED
+                   height CDATA #REQUIRED>
+
+<!-- Group Assignment -->
+<!ELEMENT group (source, metadata, expander*, compactor*, query*, insert*, update*, processor*, loop*, macro*, output*, connection*, supplier, receiver)>
+<!ATTLIST group name CDATA #REQUIRED
+                description CDATA ""
+                displayName CDATA ""
+                x CDATA #REQUIRED
+                y CDATA #REQUIRED
+                width CDATA #REQUIRED
+                height CDATA #REQUIRED>
+
+<!-- Interpretation -->
+<!ELEMENT interpret (metadata, metadata, expander*, compactor*, query*, insert*, update*, processor*, loop*, macro*, output*, connection*, supplier, receiver)>
+<!ATTLIST interpret name CDATA #REQUIRED
+                    description CDATA ""
+                    displayName CDATA ""
+                    x CDATA #REQUIRED
+                    y CDATA #REQUIRED
+                    width CDATA #REQUIRED
+                    height CDATA #REQUIRED>
+
+<!-- Translation -->
+<!ELEMENT translate ((data | dataArray | multipleData), (data | dataArray | multipleData), expander*, compactor*, query*, insert*, update*, processor*, loop*, macro*, output*, connection*, supplier, receiver)>
+<!ATTLIST translate name CDATA #REQUIRED
+                    description CDATA ""
+                    displayName CDATA ""
+                    x CDATA #REQUIRED
+                    y CDATA #REQUIRED
+                    width CDATA #REQUIRED
+                    height CDATA #REQUIRED>
+
+<!-- General Tree of Metadata -->
+<!ELEMENT general EMPTY>
+
+<!-- General Metadata Value -->
+<!ELEMENT generalValue EMPTY>
+
+<!-- Supplier Tree of a Tree Mapping -->
+<!ELEMENT supplier EMPTY>
+<!ATTLIST supplier displayName CDATA ""
+                   x CDATA #REQUIRED
+                   y CDATA #REQUIRED
+                   width CDATA #REQUIRED
+                   height CDATA #REQUIRED>
+
+<!-- Receiver Tree of a Tree Mapping -->
+<!ELEMENT receiver EMPTY>
+<!ATTLIST receiver displayName CDATA ""
+                   x CDATA #REQUIRED
+                   y CDATA #REQUIRED
+                   width CDATA #REQUIRED
+                   height CDATA #REQUIRED>
+
+<!-- Data From Multiple Sources -->
+<!ELEMENT multipleData (data*, dataArray*)>
+<!ATTLIST multipleData name CDATA #REQUIRED
+                       description CDATA "">
+
+<!-- Multiple Data From One Source -->
+<!ELEMENT dataArray (data)>
+
+<!-- Data From One Source -->
+<!ELEMENT data (source, (imageStream | image | blobStream | blob | contourStream | contourSet | contour | text))>
+
+<!-- Image Stream Tree -->
+<!ELEMENT imageStream ((metadata | general)?, image)>
+<!ATTLIST imageStream hasOneImage CDATA "false">
+
+<!-- Image Tree -->
+<!ELEMENT image ((metadata | general)?)>
+<!ATTLIST image hasAccessor CDATA "false">
+
+<!-- Blob Stream Tree -->
+<!ELEMENT blobStream (metadata, blob)>
+
+<!-- Blob Tree -->
+<!ELEMENT blob (metadata?)>
+<!ATTLIST blob hasAccessor CDATA "false">
+
+<!-- Contour Stream Tree -->
+<!ELEMENT contourStream (metadata?, contourSet)>
+<!ATTLIST contourStream hasOneSet CDATA "false">
+
+<!-- Contour Set Tree -->
+<!ELEMENT contourSet (metadata?, contour)>
+<!ATTLIST contourSet hasOneContour CDATA "false">
+
+<!-- Contour Tree -->
+<!ELEMENT contour (metadata?)>
+
+<!-- Text Tree -->
+<!ELEMENT text (metadata?)>
+
+<!-- Metadata Tree -->
+<!ELEMENT metadata (attribute*, (metadata | metadataArray)*)>
+<!ATTLIST metadata name CDATA #REQUIRED
+                   description CDATA "">
+
+<!-- Attribute of a Metadata Tree -->
+<!ELEMENT attribute ((rangeRestriction | regExpRestriction | setRestriction)?)>
+<!ATTLIST attribute name CDATA #REQUIRED
+                    description CDATA ""
+                    class CDATA #REQUIRED
+                    default CDATA #IMPLIED>
+
+<!-- Array of Metadata Trees -->
+<!ELEMENT metadataArray (metadata)>
+
+<!-- Source Tree -->
+<!ELEMENT source (file* | fileArray | database)>
+<!ATTLIST source name CDATA #REQUIRED
+                 description CDATA ""
+                 sourceName CDATA #REQUIRED
+                 sourceDescription CDATA "">
+
+<!-- File in a Source Tree -->
+<!ELEMENT file EMPTY>
+<!ATTLIST file name CDATA #REQUIRED
+               description CDATA "">
+
+<!-- File list in a Source Tree -->
+<!ELEMENT fileArray EMPTY>
+<!ATTLIST fileArray name CDATA #REQUIRED
+                    description CDATA "">
+
+<!-- Database in a Source Tree -->
+<!ELEMENT database EMPTY>
+
+<!-- Processor -->
+<!ELEMENT processor (property*, inputNode*, outputNode*)>
+<!ATTLIST processor name CDATA #REQUIRED
+                    class CDATA #REQUIRED
+                    displayName CDATA ""
+                    x CDATA #REQUIRED
+                    y CDATA #REQUIRED
+                    width CDATA #REQUIRED
+                    height CDATA #REQUIRED>
+
+<!-- Property of a Processor -->
+<!ELEMENT property EMPTY>
+<!ATTLIST property class CDATA #REQUIRED
+                   value CDATA #REQUIRED
+                   name CDATA #REQUIRED>
+
+<!-- Input Node of a Processor -->
+<!ELEMENT inputNode EMPTY>
+<!ATTLIST inputNode name CDATA #REQUIRED
+                    displayName CDATA "">
+
+<!-- Output Node of a Processor -->
+<!ELEMENT outputNode EMPTY>
+<!ATTLIST outputNode name CDATA #REQUIRED
+                     displayName CDATA "">
+
+<!-- Module Connection -->
+<!ELEMENT connection (outputNodeModule, inputNodeModule)>
+<!ATTLIST connection name CDATA ""
+                     description CDATA ""
+                     outputNodeName CDATA #REQUIRED
+                     inputNodeName CDATA #REQUIRED>
+
+<!-- Module of the Output Node of a Module Connection -->
+<!ELEMENT outputNodeModule (outputNodeModule?)>
+<!ATTLIST outputNodeModule name CDATA #REQUIRED>
+
+<!-- Module of the Input Node of a Module Connection -->
+<!ELEMENT inputNodeModule (inputNodeModule?)>
+<!ATTLIST inputNodeModule name CDATA #REQUIRED>
+
+<!-- Loop Module -->
+<!ELEMENT loop (counter, expander*, compactor*, query*, insert*, update*, processor*, loop*, macro*, output*, connection*)>
+<!ATTLIST loop name CDATA #REQUIRED
+               description CDATA ""
+               displayName CDATA ""
+               x CDATA #REQUIRED
+               y CDATA #REQUIRED
+               width CDATA #REQUIRED
+               height CDATA #REQUIRED>
+
+<!-- Loop Counter of a Loop Module -->
+<!ELEMENT counter (inputNode*, outputNode*)>
+<!ATTLIST counter displayName CDATA ""
+                  x CDATA #REQUIRED
+                  y CDATA #REQUIRED
+                  width CDATA #REQUIRED
+                  height CDATA #REQUIRED>
+
+<!-- Macro Module -->
+<!ELEMENT macro (expander*, compactor*, query*, insert*, update*, processor*, loop*, macro*, output*, connection*)>
+<!ATTLIST macro name CDATA #REQUIRED
+                description CDATA ""
+                displayName CDATA ""
+                x CDATA #REQUIRED
+                y CDATA #REQUIRED
+                width CDATA #REQUIRED
+                height CDATA #REQUIRED>
+
+<!-- Designated Output Node of a Macro Module -->
+<!ELEMENT output (moduleName)>
+<!ATTLIST output nodeName CDATA #REQUIRED>
+
+<!-- Module of a designated Output Node of a Macro Module -->
+<!ELEMENT moduleName (moduleName?)>
+<!ATTLIST moduleName name CDATA #REQUIRED>
+
+<!-- Range Restriction -->
+<!ELEMENT rangeRestriction EMPTY>
+<!ATTLIST rangeRestriction name CDATA #REQUIRED
+                           description CDATA ""
+                           lowerBound CDATA #REQUIRED
+                           upperBound CDATA #REQUIRED>
+
+<!-- Regular Expression Restriction -->
+<!ELEMENT regExpRestriction EMPTY>
+<!ATTLIST regExpRestriction name CDATA #REQUIRED
+                            description CDATA ""
+                            expression CDATA #REQUIRED>
+
+<!-- Set Restriction -->
+<!ELEMENT setRestriction (option*)>
+<!ATTLIST setRestriction name CDATA #REQUIRED
+                         description CDATA "">
+
+<!-- Option of a Set Restriction -->
+<!ELEMENT option EMPTY>
+<!ATTLIST option class CDATA #REQUIRED
+                 value CDATA #REQUIRED>
+

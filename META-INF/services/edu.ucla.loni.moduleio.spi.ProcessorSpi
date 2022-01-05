@@ -1,0 +1,5 @@
+edu.ucla.loni.debabel.events.engine.DebabelerEngineProcessorSpi
+edu.ucla.loni.debabel.processors.scott.ScottProcessorSpi
+edu.ucla.loni.debabel.processors.stdlib.StdLibraryProcessorSpi
+edu.ucla.loni.debabel.processors.keith.KeithLibraryProcessorSpi
+edu.ucla.loni.debabel.processors.vann.VannProcessorSpi
