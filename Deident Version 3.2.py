@@ -476,16 +476,6 @@ class Features(QtWidgets.QWidget):
                                           
                     sub_directory = ("%s/%s")%(identified_directory,ID[:-2])
 
-                    
-                    #Create the standard subdirectories    
-                    folders = ["/Cath","/CMR","/Clinic Notes","/ECG","/ECHO","/OP Notes","/Other"]
-                    for i in folders:
-                        if not os.path.exists("%s%s"%(sub_directory,i) ):
-                            print("%s%s"%(sub_directory,i))
-                            os.makedirs("%s%s"%(sub_directory,i))
-                                          
-                    sub_directory = ('%s%s')%(sub_directory,'/CMR/');
-
                     #Create Subfolder with test number (E.X. '01', or '02')
                     if not os.path.exists(('%s/%s')%(sub_directory,ID)):
                         os.makedirs(("%s/%s")%(sub_directory,ID))
