@@ -9,3 +9,5 @@ file set. It logs patient info in an excel file, which can be copied to other us
 ### Latest Version: De-ident 3.2.1 (January 2022)
 Version 3.2.1 has been updated to only write a CMR subfolder in the identified patient folder, 
 and does not write the other subfolders (such as ECG, CATH) that were previously created during de-identification.
+Please note that the latest version have NOT been merged into main. To access the latest code, please go to
+branch > DeleteSubfolder.
